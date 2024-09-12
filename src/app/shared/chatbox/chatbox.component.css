@@ -1,0 +1,31 @@
+.chatBoxModal {
+    height: 100%;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    justify-content: center;
+    z-index: 9999999999999;
+    width: 100%;
+}
+
+.modal-content {
+    height: 40%;
+}
+
+.speech-container {
+    text-align: center;
+}
+
+.listen {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+.microphone-new-active img {
+    width: 50px;
+    cursor: pointer;
+}

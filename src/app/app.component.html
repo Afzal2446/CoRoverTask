@@ -1,0 +1,236 @@
+<div class="container-page">
+  <div>
+    <app-header></app-header>
+  </div>
+
+  <div class="container-full">
+    <div class="container">
+      <div class="main-layout">
+        <div class="main-section">
+          <div style="padding: 10px 15px; margin: 10px 0px;">
+            <h2 tabindex="0" style="color: rgb(8, 8, 8); font-size: 22px; font-weight: 500; letter-spacing: 0px;">Good
+              Evening
+            </h2>
+            <h4 tabindex="0" style="color: rgb(77, 77, 77); font-size: 14px; font-weight: 500; margin-top: 6px;">How may
+              I
+              help you today?
+            </h4>
+          </div>
+
+          <div class="form-data">
+            <div class="booking-form" tabindex="0" id="book-form">
+              <div class="origin-destination">
+                <div tabindex="0" class="source raiseQuery" data-bs-toggle="modal" data-bs-target="#raiseAQueryPopUp"
+                  (click)="selectStation('Source')">
+                  <img src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/station-icon.png" alt=""
+                    style="margin-right: 8px; width: 24px;">
+                  <div>
+                    <span class="from">From
+                    </span>
+                    <div class="source-station" *ngIf="!sourceStationName">
+                      Select Your Source Station
+                    </div>
+                    <div class="source-station" *ngIf="sourceStationName">
+                      {{sourceStationName}}
+                    </div>
+                  </div>
+                </div>
+                <div tabindex="0" class="destination">
+                  <img src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/arrows-refactored.png"
+                    (click)="stationArrowFun()" alt="" style="width: 80%;">
+                </div>
+                <div tabindex="0" class="destination-station raiseQuery" data-bs-toggle="modal"
+                  data-bs-target="#raiseAQueryPopUp02" (click)="selectStation('Destination')">
+                  <img src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/station-icon.png" alt=""
+                    style="margin-right: 8px; width: 24px;">
+                  <div>
+                    <span class="TO">To</span>
+                    <div class="select-destination" *ngIf="!destinationStationName">
+                      Select Your Destination Station
+                    </div>
+                    <div class="select-destination" *ngIf="destinationStationName">
+                      {{destinationStationName}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- we can use mat date picker or bootstrap date picker in real scenario -->
+              <div class="journey-quota">
+                <div tabindex="0" class="journey-time">
+                  <img src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/calendar-icon-new.png"
+                    alt="" style="margin-right: 8px; width: 22px;">
+                  <div>
+                    <span class="journey-date-content">Journey
+                      Date
+                    </span>
+                    <div class="journey-date">
+                      11 Sep, 2024</div>
+                  </div>
+                </div>
+                <div tabindex="0" class="journey-type">
+                  <div>
+                    <span class="jour-quota">Journey
+                      Quota
+                    </span>
+                    <div class="selected-quota">
+                      General - GN</div>
+                  </div>
+                </div>
+              </div>
+              <button tabindex="0" class="book-ticket-btn">Book Ticket</button>
+            </div>
+          </div>
+
+          <mat-expansion-panel style="margin: 10px 10px;">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                My Upcoming Bookings
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>Please verify your number to see your upcoming bookings</p>
+            <div>
+              <button tabindex="0" class="book-ticket-btn">Verify Mobile Number</button>
+            </div>
+          </mat-expansion-panel>
+
+          <div style="width: 95%; border-top: 1px solid gainsboro; margin: 8px auto 5px;"></div>
+          <div tabindex="0" style="padding: 10px;">
+            <div class="looking-div">
+              <div class="looking-image">
+                <img src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/looking.svg" alt=""
+                  style="width: 94%;">
+              </div>
+              <p class="looking-content">Looking for
+                something else?</p>
+            </div>
+            <div class="icons-container">
+              <div class="icon-white" tabindex="0" aria-label="Failed Bookings"
+                style="background-color: rgb(252, 237, 236);"><img
+                  src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/failed-transation.svg" alt=""
+                  style="width: 34px;">
+                <p style="margin-top: 5px;">Failed Bookings</p>
+              </div><a
+                href="https://www.ecatering.irctc.co.in/?utm_source=irctc&amp;utm_medium=link&amp;utm_campaign=ask_disha"
+                target="_blank" rel="noopener noreferrer" tabindex="98"
+                style="position: relative; text-decoration: none;">
+                <div class="icon-white" tabindex="0" aria-label="Order Food"
+                  style="background-color: rgb(253, 228, 217);"><img
+                    src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/FoT-Icon.png" alt=""
+                    style="width: 34px;">
+                  <p style="margin-top: 5px;">Order Food</p>
+                </div>
+              </a><a href="https://app.affiliatics.com/redirect/af637ee0b14d0189.48957849" target="_blank"
+                rel="noopener noreferrer" tabindex="98" style="position: relative; text-decoration: none;">
+                <div class="icon-white" tabindex="0" aria-label="Tour Packages"
+                  style="background-color: rgb(252, 247, 236);"><img
+                    src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/tourism-logo.png" alt=""
+                    style="width: 34px;">
+                  <p style="margin-top: 5px;">Tour Packages</p>
+                </div>
+              </a>
+              <div class="icon-white" tabindex="0" aria-label="File TDR" style="background-color: rgb(239, 248, 253);">
+                <img src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/tdr.svg" alt=""
+                  style="width: 26px;">
+                <p style="margin-top: 5px;">File TDR</p>
+              </div>
+              <div class="icon-white" tabindex="0" aria-label="Cancel Ticket"
+                style="background-color: rgb(255, 238, 238);"><img
+                  src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/cancel-ticket-refactored.png"
+                  alt="" style="width: 28px;">
+                <p style="margin-top: 5px;">Cancel Ticket</p>
+              </div>
+              <div class="icon-white" tabindex="0" aria-label="PNR Status"
+                style="background-color: rgb(235, 238, 253);">
+                <img src="https://d3upbvvdvllr10.cloudfront.net/dishav3/pnr.svg" alt="" style="width: 40px;">
+                <p style="margin-top: 5px;">PNR Status</p>
+              </div>
+              <div class="icon-white" tabindex="0" aria-label="My Passengers"
+                style="background-color: rgb(240, 239, 253);"><img
+                  src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/luggage2-refactored.png" alt=""
+                  style="width: 32px;">
+                <p style="margin-top: 5px;">My Passengers</p>
+              </div>
+              <div class="icon-white" tabindex="0" aria-label="Change Boarding"
+                style="background-color: rgb(227, 255, 240);"><img
+                  src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/bording-station.svg" alt=""
+                  style="width: 30px;">
+                <p style="margin-top: 5px;">Change Boarding</p>
+              </div>
+              <div class="icon-white" tabindex="0" aria-label="Refund Status"
+                style="background-color: rgb(235, 250, 230);"><img
+                  src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/refund.svg" alt=""
+                  style="width: 22px;">
+                <p style="margin-top: 5px;">Refund Status</p>
+              </div>
+              <div class="icon-white" tabindex="0" aria-label="Booking History"
+                style="background-color: rgb(239, 248, 253);"><img
+                  src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/history.svg" alt=""
+                  style="width: 32px;">
+                <p style="margin-top: 5px;">Booking History</p>
+              </div>
+              <div class="icon-white" tabindex="0" aria-label="Help Me Improve"
+                style="background-color: rgb(253, 247, 231);"><img
+                  src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/positive-vote.png" alt=""
+                  style="width: 32px;">
+                <p style="margin-top: 5px;">Help Me Improve</p>
+              </div>
+            </div>
+          </div>
+
+          <mat-expansion-panel style="margin: 10px 10px;">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                How to book train ticket on AskDISHA?
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>1. Search Trains</div>
+            <div>2. Select the best Train</div>
+            <div>3. Enter IRCTC OTP</div>
+            <div>4. Ticket is booked</div>
+
+          </mat-expansion-panel>
+
+          <a href="https://bit.ly/3PYbd22" target="_blank" style="text-decoration: none; cursor: pointer;">
+            <div class="advertise">
+              <div class="adv-img"><img
+                  src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/advertising.svg" alt=""
+                  style="width: 28px; margin-right: 12px;">
+                <div>
+                  <p style="margin: 0px; font-size: 16px; color: rgb(241, 69, 38); font-weight: 600;">Advertise on Ask
+                    DISHA</p>
+                  <p style="margin: 2px 0px 0px; font-size: 14px; color: gray; font-weight: 600;">Show your brand to
+                    millions</p>
+                </div>
+              </div>
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right"
+                class="svg-inline--fa fa-angle-right " role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                style="border: 1px solid rgb(244, 70, 39); color: rgb(244, 70, 39); padding: 3px 7px; border-radius: 50%; margin-right: 9px;">
+                <path fill="currentColor"
+                  d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z">
+                </path>
+              </svg>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+
+    </div>
+    <div>
+      <app-chatbox></app-chatbox>
+    </div>
+  </div>
+
+  <div style="overflow: hidden;">
+  </div>
+
+
+  <div id="disha-drawer-1" class="drawer-overlay" tabindex="1" style="overflow: hidden;"
+    *ngIf="this.commonService.stationClicked">
+    <app-popup></app-popup>
+  </div>
+
+</div>

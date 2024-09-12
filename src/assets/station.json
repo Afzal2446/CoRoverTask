@@ -1,0 +1,64 @@
+{
+    "station": [
+        {
+            "id": 1,
+            "stationName": "Bangalore",
+            "stationshort": "BLR"
+        },
+        {
+            "id": 2,
+            "stationName": "Mumbai",
+            "stationshort": "BOM"
+        },
+        {
+            "id": 3,
+            "stationName": "Hyderabad",
+            "stationshort": "HYD"
+        },
+        {
+            "id": 4,
+            "stationName": "Gurgaon",
+            "stationshort": "GRG"
+        },
+        {
+            "id": 5,
+            "stationName": "Delhi",
+            "stationshort": "DEL"
+        },
+        {
+            "id": 6,
+            "stationName": "Noida",
+            "stationshort": "ND"
+        },
+        {
+            "id": 7,
+            "stationName": "Lucknow",
+            "stationshort": "LKO"
+        },
+        {
+            "id": 8,
+            "stationName": "Pune",
+            "stationshort": "PN"
+        },
+        {
+            "id": 9,
+            "stationName": "Indore",
+            "stationshort": "IND"
+        },
+        {
+            "id": 10,
+            "stationName": "Chennai",
+            "stationshort": "CHEN"
+        },
+        {
+            "id": 11,
+            "stationName": "Shimla",
+            "stationshort": "SML"
+        },
+        {
+            "id": 12,
+            "stationName": "Kashmir",
+            "stationshort": "KSMR"
+        }
+    ]
+}

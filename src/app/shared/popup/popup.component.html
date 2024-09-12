@@ -1,0 +1,105 @@
+<div class="modal data_mlite_popup stations-popup" id="raiseAQueryPopUp" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div id="drawer-header">
+                    <div style="width: 100%;">
+                        <p class="para-top">
+                            Select {{stationType}} Station
+                        </p>
+                        <div class="book-form-input">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="magnifying-glass"
+                                class="svg-inline--fa fa-magnifying-glass " role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                style="color: rgb(133, 133, 133); font-size: 16px; margin-top: 0.2em;">
+                                <path fill="currentColor"
+                                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z">
+                                </path>
+                            </svg>
+                            <input type="text" placeholder="Search your Station or City" id="station-textbox"
+                                [(ngModel)]="searchTerm" (input)="filterStations()" style="font-size: 14px;">
+                            <img class="mic-btn" id="mic" (click)="voiceSpeech()"
+                                src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/mic-refactored.png"
+                                alt="" style="width: 22px; cursor: pointer;">
+                        </div>
+                    </div>
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" (click)="closePopUp()"
+                        class="svg-inline--fa fa-xmark " role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 384 512">
+                        <path fill="currentColor"
+                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z">
+                        </path>
+                    </svg>
+                </div>
+
+            </div>
+            <div class="modal-body">
+                <div class="popular-content mb-2">
+                    <h6>Popular Station</h6>
+                </div>
+                <div class="stations">
+                    <div class="station">
+                        <div *ngFor="let station of filteredStations">
+                            <div class="station-row" (click)="selectedStation(station.stationName)">
+                                <div class="station-container">
+                                    <img class="station-img"
+                                        src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/station-icon.png"
+                                        alt="">
+                                    <div class="station-name">
+                                        {{station.stationName}}
+                                    </div>
+                                </div>
+                                <p class="station-short">
+                                    {{station.stationshort}}</p>
+                            </div>
+                        </div>
+                        <div style="color: red;" *ngIf="isEmptyObject(filteredStations)">Sorry! No Station Found.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal data_mlite_popup chatBoxModal-2" id="raiseAQueryPopUp-2" data-bs-backdrop="static"
+    *ngIf="voiceSpeechBottom" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+    aria-hidden="true">
+    <div class="modal-dialog-2">
+        <div class="modal-content-2">
+            <div class="modal-header">
+                <div id="drawer-header">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark"
+                        (click)="closePopUpSpeech()" class="svg-inline--fa fa-xmark " role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                        <path fill="currentColor"
+                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z">
+                        </path>
+                    </svg>
+                </div>
+
+            </div>
+            <div class="modal-body">
+                <div class="speech-container mt-3">
+                    <div class="content" *ngIf="!voiceInputOn && !textInput">
+                        <div class="speech-static-content mb-4">
+                            <p class="listen">Listening...</p>
+                        </div>
+                        <div class="speech-content-try mb-2">
+                            <p class="try"><i>Try Saying Something</i></p>
+                        </div>
+                        <div class="speech-content-example mb-3">
+                            <p class="example">Stations!</p>
+                        </div>
+                        <div class="mb-4 listen" *ngIf="textInput">
+                            {{textInput}}
+                        </div>
+                        <div class="microphone-new-active" (click)="startListening()">
+                            <img src="https://cdn.jsdelivr.net/gh/corover/assets@latest/askdisha-bucket/speech-refactored.png"
+                                alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
